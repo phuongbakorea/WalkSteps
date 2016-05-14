@@ -17,22 +17,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    NSString * xib = @"MainViewController";
-    
-    if (IS_IPHONE_3) {
-        xib = [NSString stringWithFormat:@"%@_%@",nibNameOrNil, @"ip4"];
-    } else if (IS_IPHONE_4) {
-        xib = [NSString stringWithFormat:@"%@_%@",nibNameOrNil, @"ip4"];
-    } else if (IS_IPHONE_5) {
-        xib = [NSString stringWithFormat:@"%@_%@",nibNameOrNil, @"ip5"];
-    } else if (IS_IPHONE_6) {
-        xib = [NSString stringWithFormat:@"%@_%@",nibNameOrNil, @"ip6"];
-    } else if (IS_IPHONE_6plus) {
-        xib = [NSString stringWithFormat:@"%@_%@",nibNameOrNil, @"ip6plus"];
-    } else {
-        xib = [NSString stringWithFormat:@"%@_%@",nibNameOrNil, @"ip6plus"];
-    }
-    self = [super initWithNibName:xib bundle:nibBundleOrNil];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Dashboard";
         self.tabBarItem.title = @"Dashboard";

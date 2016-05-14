@@ -26,10 +26,7 @@
 		9EA53BF01CE0F8C800291631 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA53BEE1CE0F8C800291631 /* libsqlite3.0.tbd */; };
 		9EA53BF11CE0F8C800291631 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA53BEF1CE0F8C800291631 /* libsqlite3.tbd */; };
 		9EA53BF41CE0FC0900291631 /* HistoryInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA53BF31CE0FC0900291631 /* HistoryInfo.m */; };
-		9EA53BFA1CE115CC00291631 /* MainViewController_ip4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF61CE115CC00291631 /* MainViewController_ip4.xib */; };
-		9EA53BFB1CE115CC00291631 /* MainViewController_ip5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF71CE115CC00291631 /* MainViewController_ip5.xib */; };
-		9EA53BFC1CE115CC00291631 /* MainViewController_ip6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF81CE115CC00291631 /* MainViewController_ip6.xib */; };
-		9EA53BFD1CE115CC00291631 /* MainViewController_ip6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF91CE115CC00291631 /* MainViewController_ip6plus.xib */; };
+		9EA53BFA1CE115CC00291631 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF61CE115CC00291631 /* MainViewController.xib */; };
 		9EC8D7FC1CE6C8AC006E02CB /* HourHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC8D7FA1CE6C8AC006E02CB /* HourHistoryTableViewController.m */; };
 		9EC8D7FD1CE6C8AC006E02CB /* HourHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC8D7FB1CE6C8AC006E02CB /* HourHistoryTableViewController.xib */; };
 /* End PBXBuildFile section */
@@ -64,10 +61,7 @@
 		9EA53BF21CE0FC0900291631 /* HistoryInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryInfo.h; sourceTree = "<group>"; };
 		9EA53BF31CE0FC0900291631 /* HistoryInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryInfo.m; sourceTree = "<group>"; };
 		9EA53BF51CE1150700291631 /* WalkStepsContants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalkStepsContants.h; sourceTree = "<group>"; };
-		9EA53BF61CE115CC00291631 /* MainViewController_ip4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_ip4.xib; sourceTree = "<group>"; };
-		9EA53BF71CE115CC00291631 /* MainViewController_ip5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_ip5.xib; sourceTree = "<group>"; };
-		9EA53BF81CE115CC00291631 /* MainViewController_ip6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_ip6.xib; sourceTree = "<group>"; };
-		9EA53BF91CE115CC00291631 /* MainViewController_ip6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_ip6plus.xib; sourceTree = "<group>"; };
+		9EA53BF61CE115CC00291631 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		9EC8D7F91CE6C8AC006E02CB /* HourHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourHistoryTableViewController.h; sourceTree = "<group>"; };
 		9EC8D7FA1CE6C8AC006E02CB /* HourHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourHistoryTableViewController.m; sourceTree = "<group>"; };
 		9EC8D7FB1CE6C8AC006E02CB /* HourHistoryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourHistoryTableViewController.xib; sourceTree = "<group>"; };
@@ -159,10 +153,7 @@
 		9E4182F41CDFA6360057815E /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				9EA53BF61CE115CC00291631 /* MainViewController_ip4.xib */,
-				9EA53BF71CE115CC00291631 /* MainViewController_ip5.xib */,
-				9EA53BF81CE115CC00291631 /* MainViewController_ip6.xib */,
-				9EA53BF91CE115CC00291631 /* MainViewController_ip6plus.xib */,
+				9EA53BF61CE115CC00291631 /* MainViewController.xib */,
 				9E4183071CDFAB3A0057815E /* MainViewController.h */,
 				9E4183081CDFAB3A0057815E /* MainViewController.m */,
 			);
@@ -273,17 +264,14 @@
 				9E4183011CDFA8670057815E /* HistoryTableViewController.xib in Resources */,
 				9E4183061CDFA9890057815E /* SettingsViewController.xib in Resources */,
 				9E4182EC1CDF9BB90057815E /* Default@2x.png in Resources */,
-				9EA53BFC1CE115CC00291631 /* MainViewController_ip6.xib in Resources */,
 				9E1188561CDF8B92007AE2D5 /* LaunchScreen.storyboard in Resources */,
-				9EA53BFD1CE115CC00291631 /* MainViewController_ip6plus.xib in Resources */,
 				9EC8D7FD1CE6C8AC006E02CB /* HourHistoryTableViewController.xib in Resources */,
-				9EA53BFB1CE115CC00291631 /* MainViewController_ip5.xib in Resources */,
 				9E4182EE1CDF9C390057815E /* Images.xcassets in Resources */,
 				9E4182EA1CDF9BB90057815E /* Default-568h@2x.png in Resources */,
 				9E1188531CDF8B92007AE2D5 /* Assets.xcassets in Resources */,
 				9E4182EB1CDF9BB90057815E /* Default.png in Resources */,
 				9EA53BE91CE0CD9F00291631 /* history.sqlite3 in Resources */,
-				9EA53BFA1CE115CC00291631 /* MainViewController_ip4.xib in Resources */,
+				9EA53BFA1CE115CC00291631 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
