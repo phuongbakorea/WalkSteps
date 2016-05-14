@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UIViewController {
-    IBOutlet UIButton  *_btnAlarmEnable;
+    IBOutlet UIButton  *_btnWalkStep;
     IBOutlet UILabel   *_txtBuildVersionLabel;
 }
 

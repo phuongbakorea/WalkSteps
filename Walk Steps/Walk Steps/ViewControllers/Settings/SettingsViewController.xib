@@ -20,9 +20,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_bg" translatesAutoresizingMaskIntoConstraints="NO" id="8FB-Zi-ORz">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="220" id="N5J-co-eof"/>
+                        <constraint firstAttribute="height" constant="280" id="N5J-co-eof"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Width (cm) " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s80-iW-zdh">

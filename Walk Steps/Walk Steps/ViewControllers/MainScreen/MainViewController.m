@@ -30,6 +30,8 @@
     [super viewDidLoad];
     
 
+    _btnWalkStep.layer.cornerRadius = _btnWalkStep.bounds.size.width / 2.0;
+    
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
 
 

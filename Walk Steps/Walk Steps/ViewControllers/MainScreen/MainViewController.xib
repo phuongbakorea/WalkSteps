@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
+                <outlet property="_btnWalkStep" destination="c2A-Bc-8z9" id="Gd9-ob-cGN"/>
                 <outlet property="_txtBuildVersionLabel" destination="KNv-Gl-mBq" id="aSr-uM-LDj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="xRA-6G-rvo"/>
             </connections>
@@ -20,16 +21,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nw5-Ft-H0X" userLabel="Settings">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="352"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_bg" translatesAutoresizingMaskIntoConstraints="NO" id="aMz-ob-vZd">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="280"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="220" id="iqo-aq-tWP"/>
+                                <constraint firstAttribute="height" constant="280" id="iqo-aq-tWP"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERSION: 1.0 BUILD NUMBER: 56 BUILD DATE: 2016-04-05" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNv-Gl-mBq">
-                            <rect key="frame" x="0.0" y="291" width="320" height="40"/>
+                            <rect key="frame" x="0.0" y="351" width="320" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Xhg-c0-E7e"/>
                             </constraints>
@@ -38,15 +39,16 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2A-Bc-8z9">
-                            <rect key="frame" x="115" y="100" width="90" height="59"/>
+                            <rect key="frame" x="110" y="120" width="100" height="100"/>
                             <color key="backgroundColor" red="0.89019607840000003" green="0.60392156860000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="59" id="6MQ-ar-ayn"/>
-                                <constraint firstAttribute="width" constant="90" id="xWv-pf-XZx"/>
+                                <constraint firstAttribute="height" constant="100" id="6MQ-ar-ayn"/>
+                                <constraint firstAttribute="width" constant="100" id="xWv-pf-XZx"/>
                             </constraints>
-                            <state key="normal" title="Button">
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                            <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
+                            <state key="normal" title="1000">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" red="0.89019607840000003" green="0.60392156860000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                     </subviews>
@@ -55,8 +57,8 @@
                         <constraint firstItem="KNv-Gl-mBq" firstAttribute="top" secondItem="aMz-ob-vZd" secondAttribute="bottom" constant="71" id="IbX-VY-mAq"/>
                         <constraint firstAttribute="trailing" secondItem="KNv-Gl-mBq" secondAttribute="trailing" id="K9z-Hc-ZnL"/>
                         <constraint firstItem="KNv-Gl-mBq" firstAttribute="leading" secondItem="nw5-Ft-H0X" secondAttribute="leading" id="SB7-jH-hNz"/>
-                        <constraint firstAttribute="height" constant="352" id="ULU-qT-CyV"/>
-                        <constraint firstItem="c2A-Bc-8z9" firstAttribute="top" secondItem="nw5-Ft-H0X" secondAttribute="top" constant="100" id="Ya5-se-IfI"/>
+                        <constraint firstAttribute="height" constant="400" id="ULU-qT-CyV"/>
+                        <constraint firstItem="c2A-Bc-8z9" firstAttribute="top" secondItem="nw5-Ft-H0X" secondAttribute="top" constant="120" id="Ya5-se-IfI"/>
                         <constraint firstItem="aMz-ob-vZd" firstAttribute="top" secondItem="nw5-Ft-H0X" secondAttribute="top" id="a7q-Kd-GqY"/>
                         <constraint firstItem="KNv-Gl-mBq" firstAttribute="top" secondItem="aMz-ob-vZd" secondAttribute="bottom" constant="71" id="gBp-Oy-Lxl"/>
                         <constraint firstAttribute="trailing" secondItem="aMz-ob-vZd" secondAttribute="trailing" id="iRZ-jo-T5T"/>
