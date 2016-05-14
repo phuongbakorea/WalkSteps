@@ -87,7 +87,7 @@ static HistoryDatabase *_database;
     
 }
 
-- (NSArray *) getAllHistoryInfosByDay: (int) year month: (int) month day : (int) day {
+- (NSMutableArray *) getAllHistoryInfosByDay: (int) year month: (int) month day : (int) day {
     
     NSMutableArray *retval = [[NSMutableArray alloc] init];
     NSString *query = @"SELECT id, year, month, day, sum(steps), sum(distance), hour FROM history group by year, month, day, hour ORDER BY year, month, day, hour ASC";

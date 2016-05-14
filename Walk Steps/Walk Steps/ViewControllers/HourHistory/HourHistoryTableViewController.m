@@ -29,6 +29,7 @@
         self.monthGlobal = month;
         self.dayGlobal = day;
         self.title = @"Hour History";
+        self.historyInfoArray = [NSMutableArray array];
     }
     return self;
 }
@@ -36,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.historyInfoArray = [[HistoryDatabase database] getAllHistoryInfosByDay: self.yearGlobal month: self.monthGlobal day: self.dayGlobal];
+
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -50,6 +51,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    
+    [self.historyInfoArray removeAllObjects];
+    self.historyInfoArray = [[HistoryDatabase database] getAllHistoryInfosByDay: self.yearGlobal month: self.monthGlobal day: self.dayGlobal];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -73,7 +82,7 @@
     }
 
     HistoryInfo *info = [_historyInfoArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.0f m)", info.steps, info.distance / 100.0];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.1f m)", info.steps, info.distance / 100.0];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d-%02d-%02d %02d:00", info.year, info.month, info.day, info.hour];
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image = [UIImage imageNamed:@"steps"];

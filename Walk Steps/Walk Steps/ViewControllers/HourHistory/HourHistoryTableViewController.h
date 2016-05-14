@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface HourHistoryTableViewController : UITableViewController {
-    NSArray *_historyInfoArray;
+    NSMutableArray *_historyInfoArray;
     
     int _yearGlobal;
     int _monthGlobal;
@@ -17,7 +17,7 @@
     
 }
 
-@property (nonatomic, retain) NSArray *historyInfoArray;
+@property (nonatomic, retain) NSMutableArray *historyInfoArray;
 
 @property int yearGlobal;
 @property int monthGlobal;

@@ -79,7 +79,7 @@
     }
 
     HistoryInfo *info = [_historyInfoArray1 objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.0f m)", info.steps, info.distance / 100.0];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.1f m)", info.steps, info.distance / 100.0];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d-%02d-%02d", info.year, info.month, info.day];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
