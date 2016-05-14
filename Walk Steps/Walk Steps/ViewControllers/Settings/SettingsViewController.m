@@ -24,7 +24,7 @@
     if (self) {
         self.title = @"Settings";
         self.tabBarItem.title = @"Settings";
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        self.tabBarItem.image = [UIImage imageNamed:@"settings"];
     }
     return self;
 }

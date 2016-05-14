@@ -21,7 +21,7 @@
     if (self) {
         self.title = @"Dashboard";
         self.tabBarItem.title = @"Dashboard";
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        self.tabBarItem.image = [UIImage imageNamed:@"dashboard"];
     }
     return self;
 }
