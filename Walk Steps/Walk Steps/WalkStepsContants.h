@@ -23,6 +23,7 @@
 
 #define Key_WalkStep  @"walkstep"
 #define DefaultWalkStep  70 //70 cm
+#define kUpdateInterval 0.2f
 
 #define LOCATION_DID_CHANGED_NOTIFICATION @"LOCATION_DID_CHANGED_NOTIFICATION"
 #define LOCATION_DID_FAILED_NOTIFICATION @"LOCATION_DID_FAILED_NOTIFICATION"

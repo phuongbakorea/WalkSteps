@@ -17,7 +17,7 @@
 
 @implementation HistoryTableViewController
 
-@synthesize historyInfoArray = _historyInfoArray;
+@synthesize historyInfoArray1 = _historyInfoArray1;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +26,8 @@
         self.title = @"History";
         self.tabBarItem.title = @"History";
         self.tabBarItem.image = [UIImage imageNamed:@"history"];
+        
+        self.historyInfoArray1 = [NSMutableArray array];
     }
     return self;
 }
@@ -33,7 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.historyInfoArray = [HistoryDatabase database].getAllHistoryInfos;
     
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
@@ -42,6 +43,14 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:<#animated#>];
+    
+    [self.historyInfoArray1 removeAllObjects];
+    self.historyInfoArray1 = [HistoryDatabase database].getAllHistoryInfos;
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,7 +65,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_historyInfoArray count];
+    return [_historyInfoArray1 count];
 }
 
 
@@ -69,8 +78,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
 
-    HistoryInfo *info = [_historyInfoArray objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.0f m)", info.steps, info.distance];
+    HistoryInfo *info = [_historyInfoArray1 objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.0f m)", info.steps, info.distance / 100.0];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d-%02d-%02d", info.year, info.month, info.day];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -141,7 +150,7 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    HistoryInfo *data = [self.historyInfoArray objectAtIndex:indexPath.row];
+    HistoryInfo *data = [self.historyInfoArray1 objectAtIndex:indexPath.row];
     
     HourHistoryTableViewController *controller = [[HourHistoryTableViewController alloc]  initWithNibName:@"HourHistoryTableViewController" bundle:nil year:data.year month:data.month day:data.day];
     [self.navigationController pushViewController:controller animated:YES];

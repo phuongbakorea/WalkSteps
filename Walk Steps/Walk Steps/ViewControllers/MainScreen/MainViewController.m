@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "WalkStepsContants.h"
+#import "HistoryDatabase.h"
 
 CGFloat kMinimumSpeed        = 0.3f;
 CGFloat kMaximumWalkingSpeed = 1.9f;
@@ -38,6 +39,7 @@ typedef enum
 @property (nonatomic, readonly) BOOL isShaking;
 @property (nonatomic) MotionType previousMotionType;
 @property (nonatomic, readonly) double countStep;
+@property (strong, nonatomic) NSOperationQueue* queue;
 
 @end
 
@@ -84,7 +86,19 @@ typedef enum
                                              selector:@selector(handleLocationWasPausedNotification:)
                                                  name:LOCATION_WAS_PAUSED_NOTIFICATION
                                                object:nil];
-    self.motionManager = [[CMMotionManager alloc] init];
+    
+    self.motionManager = [CMMotionManager new];
+    
+    self.motionManager.accelerometerUpdateInterval = kUpdateInterval;
+    self.motionManager.deviceMotionUpdateInterval  = kUpdateInterval;
+    self.motionManager.gyroUpdateInterval          = kUpdateInterval;
+    self.motionManager.magnetometerUpdateInterval  = kUpdateInterval;
+    self.motionManager.showsDeviceMovementDisplay  = YES;
+    
+    self.queue = [NSOperationQueue new];
+    self.queue.maxConcurrentOperationCount = 1;
+    
+
     
     [self startDetection];
     
@@ -103,14 +117,18 @@ typedef enum
                                                               selector:@selector(detectShaking)
                                                               userInfo:Nil
                                                                repeats:YES];
-    [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
+    [self.motionManager startAccelerometerUpdatesToQueue:self.queue
                                              withHandler:^(CMAccelerometerData *accelerometerData, NSError *error)
      {
+         if (error) {
+             return ;
+         }
+         
          _acceleration = accelerometerData.acceleration;
          [self calculateMotionType];
          dispatch_async(dispatch_get_main_queue(), ^{
              
-
+             [self startDetectionWithUpdateBlock: accelerometerData];
          });
      }];
     
@@ -146,6 +164,23 @@ typedef enum
     }
 }
 
+- (void)startDetectionWithUpdateBlock: (CMAccelerometerData *) accelerometerData
+{
+    if (self.motionManager.isAccelerometerActive) {
+//        return;
+    }
+    
+    CMAcceleration acceleration = accelerometerData.acceleration;
+    CGFloat strength = 1.2f;
+    BOOL isStep = NO;
+    if (fabs(acceleration.x) > strength || fabs(acceleration.y) > strength || fabs(acceleration.z) > strength) {
+        isStep = YES;
+    }
+    if (isStep) {
+            [self doWalkStep];
+    }
+}
+
 - (void) doWalkStep {
     _countStep++;
     
@@ -153,10 +188,19 @@ typedef enum
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear | NSCalendarUnitHour fromDate:now];
 
-    NSInteger day = [components day];
-    NSInteger month = [components month];
-    NSInteger year = [components year];
-    NSInteger hour = [components hour];
+    long day = [components day];
+    long month = [components month];
+    long year = [components year];
+    long hour = [components hour];
+    
+    long _walkStep = 0;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:Key_WalkStep]) {
+        _walkStep = [[defaults objectForKey:Key_WalkStep] integerValue];
+    } else {
+        _walkStep = DefaultWalkStep;
+    }
+    [[HistoryDatabase database] insertData:year month:month day:day hour:hour steps:1 distance:_walkStep];
     
     [_btnWalkStep setTitle:[NSString stringWithFormat:@"%0.0f", _countStep] forState:UIControlStateNormal];
 }
@@ -265,6 +309,9 @@ typedef enum
         
         dispatch_async(dispatch_get_main_queue(), ^{
             //update motion
+            if (self.motionType == MotionTypeWalking) {
+                [self doWalkStep];
+            }
         });
     }
 }

@@ -16,4 +16,6 @@
     IBOutlet UILabel   *_txtBuildVersionLabel;
 }
 
+- (void)startDetectionWithUpdateBlock: (CMAccelerometerData *) accelerometerData;
+
 @end

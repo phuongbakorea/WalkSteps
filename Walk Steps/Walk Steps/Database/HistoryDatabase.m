@@ -10,6 +10,7 @@
 
 @implementation HistoryDatabase
 
+
 static HistoryDatabase *_database;
 
 + (HistoryDatabase*)database {
@@ -21,7 +22,20 @@ static HistoryDatabase *_database;
 
 - (id)init {
     if ((self = [super init])) {
-        NSString *sqLiteDb = [[NSBundle mainBundle] pathForResource:@"history" ofType:@"sqlite3"];
+
+            // Set the documents directory path to the documentsDirectory property.
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        self.documentsDirectory = [paths objectAtIndex:0];
+            
+            // Keep the database filename.
+        NSString *dbFilename = @"history.sqlite3";
+            
+            // Copy the database file into the documents directory if necessary.
+        [self copyDatabaseIntoDocumentsDirectory: dbFilename];
+
+        
+        // Set the database file path.
+        NSString *sqLiteDb = [self.documentsDirectory stringByAppendingPathComponent:dbFilename];
         
         if (sqlite3_open([sqLiteDb UTF8String], &_database) != SQLITE_OK) {
             NSLog(@"Failed to open database!");
@@ -30,11 +44,27 @@ static HistoryDatabase *_database;
     return self;
 }
 
+-(void)copyDatabaseIntoDocumentsDirectory: (NSString *) dbFilename{
+    // Check if the database file exists in the documents directory.
+    NSString *destinationPath = [self.documentsDirectory stringByAppendingPathComponent:dbFilename];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:destinationPath]) {
+        // The database file does not exist in the documents directory, so copy it from the main bundle now.
+        NSString *sourcePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent: dbFilename];
+        NSError *error;
+        [[NSFileManager defaultManager] copyItemAtPath:sourcePath toPath:destinationPath error:&error];
+        
+        // Check if any error occurred during copying and display it.
+        if (error != nil) {
+            //            NSLog(@"%@", [error localizedDescription]);
+        }
+    }
+}
+
 - (void)dealloc {
     sqlite3_close(_database);
 }
 
-- (NSArray *)getAllHistoryInfos {
+- (NSMutableArray *)getAllHistoryInfos {
     
     NSMutableArray *retval = [[NSMutableArray alloc] init];
     NSString *query = @"SELECT id, year, month, day, sum(steps), sum(distance) FROM history group by year, month, day ORDER BY year, month, day ASC";
@@ -103,12 +133,19 @@ static HistoryDatabase *_database;
     return retval;
 }
 
-- (void)insertData:(int)year month:(int) month day:(int) day hour: (int) hour steps:(int) steps distance:(double) distance {
+- (void)insertData:(long)year month:(long) month day:(long) day hour: (long) hour steps:(long) steps distance:(double) distance {
     
-    NSString *query = [NSString stringWithFormat:@"insert into history(year, month, day, hour, steps, distance) values(%d, %d, %d, %d, %d, %f)", year, month, day, hour, steps, distance];
+    NSString *query = [NSString stringWithFormat:@"insert into history(year, month, day, hour, steps, distance) values(%ld, %ld, %ld, %ld, %ld, %0.0f)", year, month, day, hour, steps, distance];
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(_database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
-        sqlite3_step(statement);
+        int executeQueryResults = sqlite3_step(statement);
+        if (executeQueryResults == SQLITE_DONE) {
+            
+        }
+        else {
+            // If could not execute the query show the error message on the debugger.
+            NSLog(@"DB Error: %s", sqlite3_errmsg(_database));
+        }
         sqlite3_finalize(statement);
     }
     

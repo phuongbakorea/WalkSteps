@@ -14,11 +14,13 @@
         sqlite3 *_database;
 }
 
+@property (nonatomic, strong) NSString *documentsDirectory;
+
 + (HistoryDatabase*)database;
-- (NSArray *) getAllHistoryInfos;
+- (NSMutableArray *) getAllHistoryInfos;
 - (NSArray *) getAllHistoryInfosByDay: (int) year month: (int) month day : (int) day;
 - (HistoryInfo *) getHistoryInfoDetail:(int)_id;
 
-- (void)insertData:(int)year month:(int) month day:(int) day hour: (int) hour steps:(int) steps distance:(double) distance;
+- (void)insertData:(long)year month:(long) month day:(long) day hour: (long) hour steps:(long) steps distance:(double) distance;
 
 @end
