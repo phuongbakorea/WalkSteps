@@ -30,6 +30,8 @@
 		9EA53BFB1CE115CC00291631 /* MainViewController_ip5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF71CE115CC00291631 /* MainViewController_ip5.xib */; };
 		9EA53BFC1CE115CC00291631 /* MainViewController_ip6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF81CE115CC00291631 /* MainViewController_ip6.xib */; };
 		9EA53BFD1CE115CC00291631 /* MainViewController_ip6plus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF91CE115CC00291631 /* MainViewController_ip6plus.xib */; };
+		9EC8D7FC1CE6C8AC006E02CB /* HourHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC8D7FA1CE6C8AC006E02CB /* HourHistoryTableViewController.m */; };
+		9EC8D7FD1CE6C8AC006E02CB /* HourHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC8D7FB1CE6C8AC006E02CB /* HourHistoryTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,9 @@
 		9EA53BF71CE115CC00291631 /* MainViewController_ip5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_ip5.xib; sourceTree = "<group>"; };
 		9EA53BF81CE115CC00291631 /* MainViewController_ip6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_ip6.xib; sourceTree = "<group>"; };
 		9EA53BF91CE115CC00291631 /* MainViewController_ip6plus.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController_ip6plus.xib; sourceTree = "<group>"; };
+		9EC8D7F91CE6C8AC006E02CB /* HourHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourHistoryTableViewController.h; sourceTree = "<group>"; };
+		9EC8D7FA1CE6C8AC006E02CB /* HourHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourHistoryTableViewController.m; sourceTree = "<group>"; };
+		9EC8D7FB1CE6C8AC006E02CB /* HourHistoryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourHistoryTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +148,7 @@
 		9E4182F31CDFA61A0057815E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9EC8D7F81CE6C78C006E02CB /* HourHistory */,
 				9E4182FC1CDFA82D0057815E /* History */,
 				9E4182F81CDFA6A60057815E /* Settings */,
 				9E4182F41CDFA6360057815E /* MainScreen */,
@@ -190,6 +196,16 @@
 				9EA53BEC1CE0F8B600291631 /* HistoryDatabase.m */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		9EC8D7F81CE6C78C006E02CB /* HourHistory */ = {
+			isa = PBXGroup;
+			children = (
+				9EC8D7F91CE6C8AC006E02CB /* HourHistoryTableViewController.h */,
+				9EC8D7FA1CE6C8AC006E02CB /* HourHistoryTableViewController.m */,
+				9EC8D7FB1CE6C8AC006E02CB /* HourHistoryTableViewController.xib */,
+			);
+			path = HourHistory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +276,7 @@
 				9EA53BFC1CE115CC00291631 /* MainViewController_ip6.xib in Resources */,
 				9E1188561CDF8B92007AE2D5 /* LaunchScreen.storyboard in Resources */,
 				9EA53BFD1CE115CC00291631 /* MainViewController_ip6plus.xib in Resources */,
+				9EC8D7FD1CE6C8AC006E02CB /* HourHistoryTableViewController.xib in Resources */,
 				9EA53BFB1CE115CC00291631 /* MainViewController_ip5.xib in Resources */,
 				9E4182EE1CDF9C390057815E /* Images.xcassets in Resources */,
 				9E4182EA1CDF9BB90057815E /* Default-568h@2x.png in Resources */,
@@ -277,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EC8D7FC1CE6C8AC006E02CB /* HourHistoryTableViewController.m in Sources */,
 				9E4183001CDFA8670057815E /* HistoryTableViewController.m in Sources */,
 				9E41830A1CDFAB3A0057815E /* MainViewController.m in Sources */,
 				9E1188481CDF8B92007AE2D5 /* AppDelegate.m in Sources */,

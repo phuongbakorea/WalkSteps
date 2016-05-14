@@ -37,7 +37,7 @@ static HistoryDatabase *_database;
 - (NSArray *)getAllHistoryInfos {
     
     NSMutableArray *retval = [[NSMutableArray alloc] init];
-    NSString *query = @"SELECT id, year, month, day, hour, steps, distance FROM history ORDER BY id DESC";
+    NSString *query = @"SELECT id, year, month, day, sum(steps), sum(distance) FROM history group by year, month, day ORDER BY year, month, day ASC";
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(_database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
         while (sqlite3_step(statement) == SQLITE_ROW) {
@@ -45,9 +45,32 @@ static HistoryDatabase *_database;
             int year = sqlite3_column_int(statement, 1);
             int month = sqlite3_column_int(statement, 2);
             int day = sqlite3_column_int(statement, 3);
-            int hour = sqlite3_column_int(statement, 4);
-            int steps = sqlite3_column_int(statement, 5);
-            double distance = sqlite3_column_double(statement, 6);
+            int steps = sqlite3_column_int(statement, 4);
+            double distance = sqlite3_column_double(statement, 5);
+            
+            HistoryInfo *info = [[HistoryInfo alloc] initData:uniqueId year : year month:month day: day hour:0 steps: steps distance:distance];
+            [retval addObject:info];
+        }
+        sqlite3_finalize(statement);
+    }
+    return retval;
+    
+}
+
+- (NSArray *) getAllHistoryInfosByDay: (int) year month: (int) month day : (int) day {
+    
+    NSMutableArray *retval = [[NSMutableArray alloc] init];
+    NSString *query = @"SELECT id, year, month, day, sum(steps), sum(distance), hour FROM history group by year, month, day, hour ORDER BY year, month, day, hour ASC";
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(_database, [query UTF8String], -1, &statement, nil) == SQLITE_OK) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            int uniqueId = sqlite3_column_int(statement, 0);
+            int year = sqlite3_column_int(statement, 1);
+            int month = sqlite3_column_int(statement, 2);
+            int day = sqlite3_column_int(statement, 3);
+            int steps = sqlite3_column_int(statement, 4);
+            double distance = sqlite3_column_double(statement, 5);
+            int hour = sqlite3_column_int(statement, 6);
             
             HistoryInfo *info = [[HistoryInfo alloc] initData:uniqueId year : year month:month day: day hour:hour steps: steps distance:distance];
             [retval addObject:info];

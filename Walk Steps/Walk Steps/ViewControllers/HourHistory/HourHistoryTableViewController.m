@@ -6,26 +6,29 @@
 //  Copyright © 2016 NRC. All rights reserved.
 //
 
-#import "HistoryTableViewController.h"
+#import "HourHistoryTableViewController.h"
 #import "HistoryDatabase.h"
 #import "HistoryInfo.h"
-#import "HourHistoryTableViewController.h"
 
-@interface HistoryTableViewController ()
+@interface HourHistoryTableViewController ()
 
 @end
 
-@implementation HistoryTableViewController
+@implementation HourHistoryTableViewController
 
 @synthesize historyInfoArray = _historyInfoArray;
+@synthesize yearGlobal = _yearGlobal;
+@synthesize monthGlobal = _monthGlobal;
+@synthesize dayGlobal = _dayGlobal;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil year: (int) year month : (int) month day : (int) day
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"History";
-        self.tabBarItem.title = @"History";
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        self.yearGlobal = year;
+        self.monthGlobal = month;
+        self.dayGlobal = day;
+        self.title = @"Hour History";
     }
     return self;
 }
@@ -33,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.historyInfoArray = [HistoryDatabase database].getAllHistoryInfos;
+    self.historyInfoArray = [[HistoryDatabase database] getAllHistoryInfosByDay: self.yearGlobal month: self.monthGlobal day: self.dayGlobal];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -69,7 +72,7 @@
 
     HistoryInfo *info = [_historyInfoArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.0f m)", info.steps, info.distance];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d-%02d-%02d", info.year, info.month, info.day];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d-%02d-%02d %02d:00", info.year, info.month, info.day, info.hour];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -122,17 +125,21 @@
 }
 */
 
-
+/*
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    HistoryInfo *data = [self.historyInfoArray objectAtIndex:indexPath.row];
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:<#@"Nib name"#> bundle:nil];
     
-    HourHistoryTableViewController *controller = [[HourHistoryTableViewController alloc]  initWithNibName:@"HourHistoryTableViewController" bundle:nil year:data.year month:data.month day:data.day];
-    [self.navigationController pushViewController:controller animated:YES];
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
+*/
 
 /*
 #pragma mark - Navigation

@@ -16,6 +16,7 @@
 
 + (HistoryDatabase*)database;
 - (NSArray *) getAllHistoryInfos;
+- (NSArray *) getAllHistoryInfosByDay: (int) year month: (int) month day : (int) day;
 - (HistoryInfo *) getHistoryInfoDetail:(int)_id;
 
 - (void)insertData:(int)year month:(int) month day:(int) day hour: (int) hour steps:(int) steps distance:(double) distance;
