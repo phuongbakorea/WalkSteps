@@ -7,8 +7,11 @@
 //
 
 #import "SettingsViewController.h"
+#import "WalkStepsContants.h"
 
 @interface SettingsViewController ()
+
+@property long _walkStep;
 
 @end
 
@@ -28,7 +31,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:Key_WalkStep]) {
+        self._walkStep = [[defaults objectForKey:Key_WalkStep] integerValue];
+    } else {
+        self._walkStep = DefaultWalkStep;
+    }
+    
+    _txtWalkStep.text = [NSString stringWithFormat:@"%ld", self._walkStep];
+}
+
+
+-(void) onPlus {
+    self._walkStep++;
+    
+    [self saveWalkStep];
+}
+
+-(void) onMinus {
+    self._walkStep--;
+    if (self._walkStep <= 10) {
+        self._walkStep = 10;
+    }
+    
+    [self saveWalkStep];
+    
+}
+
+- (void) saveWalkStep {
+    _txtWalkStep.text = [NSString stringWithFormat:@"%ld", self._walkStep];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSString stringWithFormat:@"%ld", self._walkStep] forKey: Key_WalkStep];
+    [defaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {

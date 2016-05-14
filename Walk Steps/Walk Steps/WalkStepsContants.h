@@ -19,4 +19,7 @@
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
 
+#define Key_WalkStep  @"walkstep"
+#define DefaultWalkStep  70 //70 cm
+
 #endif /* WalkStepsContants_h */

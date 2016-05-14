@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
             <connections>
-                <outlet property="_btnAlarmEnable" destination="XFa-GN-IDM" id="MBc-pa-3uM"/>
                 <outlet property="_txtBuildVersionLabel" destination="KNv-Gl-mBq" id="aSr-uM-LDj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="xRA-6G-rvo"/>
             </connections>
@@ -20,52 +19,61 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_black" translatesAutoresizingMaskIntoConstraints="NO" id="KDq-GP-4oz">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nw5-Ft-H0X" userLabel="Settings">
-                    <rect key="frame" x="0.0" y="64" width="320" height="352"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nw5-Ft-H0X" userLabel="Settings">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="352"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="setting_bg" translatesAutoresizingMaskIntoConstraints="NO" id="aMz-ob-vZd">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_bg" translatesAutoresizingMaskIntoConstraints="NO" id="aMz-ob-vZd">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="220" id="iqo-aq-tWP"/>
+                            </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5U-4X-iGj" userLabel="History">
-                            <rect key="frame" x="76" y="98" width="168" height="24"/>
-                            <state key="normal" image="btn_history_normal"/>
-                            <state key="highlighted" image="btn_history_selected"/>
-                            <connections>
-                                <action selector="onThresholdZone" destination="-1" eventType="touchUpInside" id="nv5-mW-VrE"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XFa-GN-IDM" userLabel="Start And Stop">
-                            <rect key="frame" x="85" y="24" width="150" height="37"/>
-                            <state key="normal" image="on_off_off"/>
-                            <state key="selected" image="on_off_on"/>
-                            <connections>
-                                <action selector="onAlarm" destination="-1" eventType="touchUpInside" id="Mw4-Sg-Mmi"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VERSION: 1.0 BUILD NUMBER: 56 BUILD DATE: 2016-04-05" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNv-Gl-mBq">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERSION: 1.0 BUILD NUMBER: 56 BUILD DATE: 2016-04-05" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNv-Gl-mBq">
                             <rect key="frame" x="0.0" y="291" width="320" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Xhg-c0-E7e"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="9"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdb-oe-aSN" userLabel="Settings">
-                            <rect key="frame" x="76" y="159" width="168" height="24"/>
-                            <state key="normal" image="btn_settings_normal"/>
-                            <state key="highlighted" image="btn_setting_selected"/>
-                            <connections>
-                                <action selector="onThresholdBeacons" destination="-1" eventType="touchUpInside" id="6yF-LL-8hJ"/>
-                            </connections>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2A-Bc-8z9">
+                            <rect key="frame" x="115" y="100" width="90" height="59"/>
+                            <color key="backgroundColor" red="0.89019607840000003" green="0.60392156860000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="59" id="6MQ-ar-ayn"/>
+                                <constraint firstAttribute="width" constant="90" id="xWv-pf-XZx"/>
+                            </constraints>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.89019607840000003" green="0.60392156860000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="KNv-Gl-mBq" firstAttribute="top" secondItem="aMz-ob-vZd" secondAttribute="bottom" constant="71" id="IbX-VY-mAq"/>
+                        <constraint firstAttribute="trailing" secondItem="KNv-Gl-mBq" secondAttribute="trailing" id="K9z-Hc-ZnL"/>
+                        <constraint firstItem="KNv-Gl-mBq" firstAttribute="leading" secondItem="nw5-Ft-H0X" secondAttribute="leading" id="SB7-jH-hNz"/>
+                        <constraint firstAttribute="height" constant="352" id="ULU-qT-CyV"/>
+                        <constraint firstItem="c2A-Bc-8z9" firstAttribute="top" secondItem="nw5-Ft-H0X" secondAttribute="top" constant="100" id="Ya5-se-IfI"/>
+                        <constraint firstItem="aMz-ob-vZd" firstAttribute="top" secondItem="nw5-Ft-H0X" secondAttribute="top" id="a7q-Kd-GqY"/>
+                        <constraint firstItem="KNv-Gl-mBq" firstAttribute="top" secondItem="aMz-ob-vZd" secondAttribute="bottom" constant="71" id="gBp-Oy-Lxl"/>
+                        <constraint firstAttribute="trailing" secondItem="aMz-ob-vZd" secondAttribute="trailing" id="iRZ-jo-T5T"/>
+                        <constraint firstItem="aMz-ob-vZd" firstAttribute="leading" secondItem="nw5-Ft-H0X" secondAttribute="leading" id="oaW-xE-Ucd"/>
+                        <constraint firstItem="c2A-Bc-8z9" firstAttribute="centerX" secondItem="nw5-Ft-H0X" secondAttribute="centerX" id="tNr-J9-oHZ"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="nw5-Ft-H0X" secondAttribute="trailing" id="6q1-QA-87G"/>
+                <constraint firstItem="nw5-Ft-H0X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="O4D-nf-1yR"/>
                 <constraint firstAttribute="bottom" secondItem="KDq-GP-4oz" secondAttribute="bottom" id="RWm-w3-RbF"/>
                 <constraint firstItem="KDq-GP-4oz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RXC-86-fPA"/>
                 <constraint firstAttribute="trailing" secondItem="KDq-GP-4oz" secondAttribute="trailing" id="RYW-z7-iQ3"/>
                 <constraint firstItem="KDq-GP-4oz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hkM-Qc-zMO"/>
+                <constraint firstItem="nw5-Ft-H0X" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="i9r-nI-GEi"/>
             </constraints>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <point key="canvasLocation" x="220" y="335"/>
@@ -73,12 +81,6 @@
     </objects>
     <resources>
         <image name="background_black" width="768" height="1024"/>
-        <image name="btn_history_normal" width="167" height="24"/>
-        <image name="btn_history_selected" width="167" height="24"/>
-        <image name="btn_setting_selected" width="167" height="24"/>
-        <image name="btn_settings_normal" width="167" height="24"/>
-        <image name="on_off_off" width="150" height="37"/>
-        <image name="on_off_on" width="150" height="37"/>
         <image name="setting_bg" width="768" height="404"/>
     </resources>
 </document>

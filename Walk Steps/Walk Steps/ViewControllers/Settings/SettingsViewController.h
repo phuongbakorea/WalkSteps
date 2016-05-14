@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController {
+    IBOutlet UILabel *_txtWalkStep;
+}
 
+
+-(IBAction) onPlus;
+-(IBAction) onMinus;
 @end

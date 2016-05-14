@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsViewController">
             <connections>
+                <outlet property="_txtWalkStep" destination="hSo-7R-3Gf" id="y57-8B-eQQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -41,6 +42,9 @@
                     </constraints>
                     <state key="normal" image="btn_plus_normal"/>
                     <state key="highlighted" image="btn_plus_selected"/>
+                    <connections>
+                        <action selector="onPlus" destination="-1" eventType="touchUpInside" id="uGm-QZ-gNm"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-tN-Yvi" userLabel="Max-">
                     <rect key="frame" x="239" y="119" width="60" height="30"/>
@@ -50,6 +54,9 @@
                     </constraints>
                     <state key="normal" image="btn_minus_normal"/>
                     <state key="highlighted" image="btn_minus_selected"/>
+                    <connections>
+                        <action selector="onMinus" destination="-1" eventType="touchUpInside" id="cck-CQ-yJH"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSo-7R-3Gf">
                     <rect key="frame" x="21" y="123" width="68" height="21"/>
