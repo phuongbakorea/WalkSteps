@@ -29,6 +29,8 @@
 		9EA53BFA1CE115CC00291631 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA53BF61CE115CC00291631 /* MainViewController.xib */; };
 		9EC8D7FC1CE6C8AC006E02CB /* HourHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC8D7FA1CE6C8AC006E02CB /* HourHistoryTableViewController.m */; };
 		9EC8D7FD1CE6C8AC006E02CB /* HourHistoryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EC8D7FB1CE6C8AC006E02CB /* HourHistoryTableViewController.xib */; };
+		9EC8D8011CE74A56006E02CB /* LocationManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC8D8001CE74A56006E02CB /* LocationManagement.m */; };
+		9EC8D8031CE74AB8006E02CB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EC8D8021CE74AB8006E02CB /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,9 @@
 		9EC8D7F91CE6C8AC006E02CB /* HourHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourHistoryTableViewController.h; sourceTree = "<group>"; };
 		9EC8D7FA1CE6C8AC006E02CB /* HourHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HourHistoryTableViewController.m; sourceTree = "<group>"; };
 		9EC8D7FB1CE6C8AC006E02CB /* HourHistoryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HourHistoryTableViewController.xib; sourceTree = "<group>"; };
+		9EC8D7FF1CE74A56006E02CB /* LocationManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagement.h; sourceTree = "<group>"; };
+		9EC8D8001CE74A56006E02CB /* LocationManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManagement.m; sourceTree = "<group>"; };
+		9EC8D8021CE74AB8006E02CB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EC8D8031CE74AB8006E02CB /* MapKit.framework in Frameworks */,
 				9EA53BF01CE0F8C800291631 /* libsqlite3.0.tbd in Frameworks */,
 				9EA53BF11CE0F8C800291631 /* libsqlite3.tbd in Frameworks */,
 			);
@@ -83,6 +89,7 @@
 		9E1188371CDF8B92007AE2D5 = {
 			isa = PBXGroup;
 			children = (
+				9EC8D8021CE74AB8006E02CB /* MapKit.framework */,
 				9EA53BEE1CE0F8C800291631 /* libsqlite3.0.tbd */,
 				9EA53BEF1CE0F8C800291631 /* libsqlite3.tbd */,
 				9E1188421CDF8B92007AE2D5 /* Walk Steps */,
@@ -101,6 +108,7 @@
 		9E1188421CDF8B92007AE2D5 /* Walk Steps */ = {
 			isa = PBXGroup;
 			children = (
+				9EC8D7FE1CE749F3006E02CB /* LocationManagement */,
 				9EA53BEA1CE0F6A100291631 /* Database */,
 				9EA53BE81CE0CD9F00291631 /* history.sqlite3 */,
 				9E4182F31CDFA61A0057815E /* ViewControllers */,
@@ -199,6 +207,15 @@
 			path = HourHistory;
 			sourceTree = "<group>";
 		};
+		9EC8D7FE1CE749F3006E02CB /* LocationManagement */ = {
+			isa = PBXGroup;
+			children = (
+				9EC8D7FF1CE74A56006E02CB /* LocationManagement.h */,
+				9EC8D8001CE74A56006E02CB /* LocationManagement.m */,
+			);
+			path = LocationManagement;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -289,6 +306,7 @@
 				9E4182F11CDF9FD00057815E /* HistoryViewController.m in Sources */,
 				9E4183051CDFA9890057815E /* SettingsViewController.m in Sources */,
 				9E1188451CDF8B92007AE2D5 /* main.m in Sources */,
+				9EC8D8011CE74A56006E02CB /* LocationManagement.m in Sources */,
 				9EA53BF41CE0FC0900291631 /* HistoryInfo.m in Sources */,
 				9EA53BED1CE0F8B600291631 /* HistoryDatabase.m in Sources */,
 			);

@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "LocationManagement.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface MainViewController : UIViewController {
     IBOutlet UIButton  *_btnWalkStep;

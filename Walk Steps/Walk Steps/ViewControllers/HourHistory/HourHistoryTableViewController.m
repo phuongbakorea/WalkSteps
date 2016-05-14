@@ -38,6 +38,8 @@
     
     self.historyInfoArray = [[HistoryDatabase database] getAllHistoryInfosByDay: self.yearGlobal month: self.monthGlobal day: self.dayGlobal];
     
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -74,6 +76,7 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%d (%0.0f m)", info.steps, info.distance];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d-%02d-%02d %02d:00", info.year, info.month, info.day, info.hour];
 //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.imageView.image = [UIImage imageNamed:@"steps"];
     
     return cell;
     
@@ -85,6 +88,14 @@
     return @"Steps";
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return @"";
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 50;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {

@@ -23,7 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>To be able to track your motion when need to access to your location.</string>
+	<string>We need to check your motion by accessing to your location information.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need to check your motion by accessing to your location information.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
