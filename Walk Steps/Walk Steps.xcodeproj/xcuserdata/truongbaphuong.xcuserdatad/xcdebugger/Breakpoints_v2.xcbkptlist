@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Walk Steps/ViewControllers/MainScreen/MainViewController.m"
-            timestampString = "484881208.929656"
+            timestampString = "484893732.457955"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>

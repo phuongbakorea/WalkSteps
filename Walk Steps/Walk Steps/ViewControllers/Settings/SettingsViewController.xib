@@ -15,6 +15,15 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_black" translatesAutoresizingMaskIntoConstraints="NO" id="a1K-Km-NFl">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting_bg" translatesAutoresizingMaskIntoConstraints="NO" id="8FB-Zi-ORz">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="N5J-co-eof"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step Width (cm) " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s80-iW-zdh">
                     <rect key="frame" x="21" y="80" width="147" height="21"/>
                     <constraints>
@@ -24,18 +33,20 @@
                     <color key="textColor" red="0.89019607840000003" green="0.60392156860000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rit-Qg-Zie" userLabel="Max+">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rit-Qg-Zie" userLabel="Max+">
                     <rect key="frame" x="179" y="119" width="60" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="NLl-1n-5a7"/>
+                        <constraint firstAttribute="height" constant="30" id="kPu-J3-2a8"/>
                     </constraints>
                     <state key="normal" image="btn_plus_normal"/>
                     <state key="highlighted" image="btn_plus_selected"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-tN-Yvi" userLabel="Max-">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDl-tN-Yvi" userLabel="Max-">
                     <rect key="frame" x="239" y="119" width="60" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="1GF-GG-pTX"/>
+                        <constraint firstAttribute="height" constant="30" id="FPa-zt-sOL"/>
                     </constraints>
                     <state key="normal" image="btn_minus_normal"/>
                     <state key="highlighted" image="btn_minus_selected"/>
@@ -52,19 +63,28 @@
                 <constraint firstItem="rit-Qg-Zie" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="119" id="6hA-uc-yM7"/>
                 <constraint firstAttribute="trailing" secondItem="QDl-tN-Yvi" secondAttribute="trailing" constant="21" id="A9z-tq-9pu"/>
                 <constraint firstItem="hSo-7R-3Gf" firstAttribute="top" secondItem="s80-iW-zdh" secondAttribute="bottom" constant="26" id="Aen-Lz-bTK"/>
+                <constraint firstItem="8FB-Zi-ORz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EeT-l2-0Bv"/>
                 <constraint firstItem="s80-iW-zdh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="HVk-QA-KFd"/>
+                <constraint firstAttribute="trailing" secondItem="a1K-Km-NFl" secondAttribute="trailing" id="Hh4-nY-DU2"/>
+                <constraint firstItem="a1K-Km-NFl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Hw6-ul-gu5"/>
                 <constraint firstItem="hSo-7R-3Gf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="LXi-94-XV1"/>
+                <constraint firstItem="8FB-Zi-ORz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Vnp-56-krI"/>
+                <constraint firstItem="a1K-Km-NFl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yii-B4-Com"/>
                 <constraint firstItem="QDl-tN-Yvi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="119" id="Yua-qc-kdH"/>
                 <constraint firstItem="s80-iW-zdh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="gLq-f1-wGE"/>
+                <constraint firstAttribute="trailing" secondItem="8FB-Zi-ORz" secondAttribute="trailing" id="klF-oC-iBL"/>
                 <constraint firstItem="QDl-tN-Yvi" firstAttribute="leading" secondItem="rit-Qg-Zie" secondAttribute="trailing" id="mkP-0Q-xwG"/>
+                <constraint firstAttribute="bottom" secondItem="a1K-Km-NFl" secondAttribute="bottom" id="nNj-Dy-Odc"/>
             </constraints>
             <point key="canvasLocation" x="218" y="263"/>
         </view>
     </objects>
     <resources>
+        <image name="background_black" width="768" height="1024"/>
         <image name="btn_minus_normal" width="75" height="37"/>
         <image name="btn_minus_selected" width="75" height="37"/>
         <image name="btn_plus_normal" width="75" height="37"/>
         <image name="btn_plus_selected" width="75" height="37"/>
+        <image name="setting_bg" width="768" height="404"/>
     </resources>
 </document>
